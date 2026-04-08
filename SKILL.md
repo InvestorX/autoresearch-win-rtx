@@ -79,8 +79,11 @@ uv sync
 ### 3. One-Time Data Preparation
 
 ```powershell
-# Download TinyStories dataset and train tokenizer
-# This creates ~/.cache/autoresearch/ with data shards and tokenizer
+# Download the TinyStories parquet dataset and train the tokenizer
+# By default on Windows, this stores files under %LOCALAPPDATA%\autoresearch
+# If AUTORESEARCH_CACHE_DIR is set, that location is used instead; a legacy
+# ~/.cache/autoresearch directory may also be reused if it already exists
+# Expected artifacts include the downloaded parquet plus tokenizer.pkl and token_bytes.pt
 uv run prepare.py
 ```
 
