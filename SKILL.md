@@ -115,11 +115,12 @@ If this completes successfully, the setup is ready for autonomous research.
    - `train.py` - the file you will modify (model, optimizer, training loop)
    - `program.md` - detailed experimentation protocol
 
-4. **Verify data exists**: Check that `~/.cache/autoresearch/` contains:
-   - Data shards (`data_*.bin`)
-   - Tokenizer file (`tokenizer.json`)
+4. **Verify data exists**: Check the autoresearch cache root. Use `AUTORESEARCH_CACHE_DIR` if it is set; otherwise on Windows check `%LOCALAPPDATA%\autoresearch` (rather than `~/.cache/autoresearch/`).
+   Confirm that the TinyStories prep artifacts exist there, including:
+   - TinyStories dataset file (`*.parquet`)
+   - Tokenizer files (`tokenizer.pkl` and `token_bytes.pt`)
 
-   If missing, instruct user to run `uv run prepare.py`.
+   If these files are missing, instruct user to run `uv run prepare.py`.
 
 5. **Initialize results.tsv**: Create `results.tsv` with header row:
    ```
